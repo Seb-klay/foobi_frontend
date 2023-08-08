@@ -180,7 +180,7 @@
                     window.location.href = `${window.location.origin}/search?id=${route.query.id}&group_id=${route.query.group_id}`
                 })
             } catch(error){
-                errorWhileCreation = true
+                errorWhileCreation.value = true
                 errorMessage.value = "Une erreur s'est produite. Réessayez s'il vous plait"
             }
             return

@@ -167,7 +167,7 @@
                 window.location.reload()
               )
           } catch(error){
-              errorWhileCreation = true
+              errorWhileCreation.value = true
               errorMessage.value = error.message
           }
 
