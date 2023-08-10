@@ -3,7 +3,7 @@ module.exports = {
   content: ['./index.html', './src/**/*.{vue,js,ts,html}'],
   css: {
     extract: {
-      filename: 'dist/output.css', // Specify the desired output file path
+      filename: 'public/output.css', // Specify the desired output file path
     },
   },
   theme: {
