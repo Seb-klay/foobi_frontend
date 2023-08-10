@@ -61,7 +61,7 @@
                 <button @click="get_day_repas_infos(repas.date_repas)">
                     <h1 class="md:p-2 sm:p-1">{{ day_of_week[repas.day_of_week] + ' ' + repas.moment }}</h1>
                     <h1 class="md:p-2 sm:p-1">{{ repas.date_repas }}</h1>
-                    <h1 class="md:p-2 sm:p-1">{{ repas.recettes[0]?.title }}</h1>
+                    <h1 class="break-words md:p-2 sm:p-1">{{ repas.recettes[0]?.title }}</h1>
                 </button>
             </div>
         </div>

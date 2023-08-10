@@ -11,7 +11,7 @@
             
             <RouterLink :to="{path : '/create_recipe', query: { id: route.query.id, group_id : route.query.group_id} }">
                 <button class="flex h-auto w-10 rounded-2xl bg-app_primary_color border-black border-2 border-opacity-80 hover:bg-opacity-50 hover:delay-100 hover:ease-in hover:duration-100">
-                    <img class="p-2 rounded-2xl" src="src/assets/croix-plus.png" alt="ajouter recette custom">
+                    <img class="p-2 rounded-2xl" src="/src/assets/croix-plus.png" alt="ajouter recette custom">
                 </button>
             </RouterLink>
         </div>

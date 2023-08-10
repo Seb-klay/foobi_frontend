@@ -6,13 +6,13 @@
             <button
                 @click="lastWeek"
                 class="h-auto w-6">
-                <img src="src/assets/fleche-gauche.png" alt="semaine précédente">
+                <img src="/src/assets/fleche-gauche.png" alt="semaine précédente">
             </button>
             <h1>Du {{ date.firstDateAxios }} au {{ date.lastDateAxios }}</h1>
             <button 
                 @click="nextWeek"
                 class="h-auto w-6">
-                <img src="src/assets/fleche-droite.png" alt="semaine suivante">
+                <img src="/src/assets/fleche-droite.png" alt="semaine suivante">
             </button>
         </div>
 
