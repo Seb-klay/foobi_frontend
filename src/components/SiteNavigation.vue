@@ -2,7 +2,7 @@
     <footer class="fixed bottom-0 drop-shadow-[35px_35px_0_rgba(0,0,0,0.25)] w-full bg-app_secondary_color z-50">
         <nav class="container px-6 pt-3">
             <div class="mb-6 flex justify-center">
-                <RouterLink :to="{path : '/home', query: { id: route.query.id, group_id : route.query.group_id} }" class="mx-auto h-full w-14 focus:bg-app_primary_color py-4 px-4 rounded-md">
+                <RouterLink :to="{path : '/', query: { id: route.query.id, group_id : route.query.group_id} }" class="mx-auto h-full w-14 focus:bg-app_primary_color py-4 px-4 rounded-md">
                     <img  src="/src/assets/loger.png" alt="accueil">
                 </RouterLink>
                 <RouterLink :to="{path : '/search', query: { id: route.query.id, group_id : route.query.group_id} }" class="mx-auto h-full w-14 focus:bg-app_primary_color py-4 px-4 rounded-md">

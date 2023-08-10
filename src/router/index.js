@@ -16,7 +16,7 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/home',
+      path: '/',
       name: 'home',
       component: HomeView,
       props: (route) => ({ id: route.query.id, group_id : route.query.group_id })

@@ -50,7 +50,7 @@
                     )
                 ).then( (response) =>
                     router.push({
-                        path: '/home',
+                        path: '/',
                         query: {
                             id : route.query.id,
                             group_id: response.data.id
