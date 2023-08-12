@@ -106,6 +106,8 @@
 
     const backend_url = 'https://foobi.jcloud.ik-server.com'
 
+    axios.defaults.timeout = 10000;
+
     const day_of_week = ref(['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'])
 
     const route = useRoute()
