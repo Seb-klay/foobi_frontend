@@ -36,7 +36,7 @@
                     :style="{'background-image': `url(${recipe.image})`, 'background-position': 'center'}">
                         <div
                             class="absolute bottom-0 left-0 right-0 top-0 h-full w-full rounded-md bg-black bg-opacity-40">
-                            <RouterLink :to="{path : '/recipe_infos', query: { id: route.query.id, group_id : route.query.group_id, recipe_id: recipe.id} }">
+                            <RouterLink :to="{path : '/recipe_infos', query: { id: route.query.id, group_id : route.query.group_id, api_id: recipe.id} }">
                                 <h1 class="flex p-2 text-app_primary_color font-bold text-xl">{{ recipe.title }}</h1>
                             </RouterLink>
 

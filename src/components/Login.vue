@@ -51,8 +51,8 @@
                     `${backend_url}/login?mail=${query_email.value}&password=${query_password.value}`
                 ).then(
                     (response) => {
-                        user_id = response.data.id,
-                        window.location.href = `${window.location.origin}/account?id=${user_id}`
+                        user_id = response.data.id
+                        //window.location.href = `${window.location.origin}/account?id=${user_id}`
                     }
                 )
             return user_id 
