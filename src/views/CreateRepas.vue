@@ -9,7 +9,7 @@
         <div class="pt-8 mb-8 relative w-full">
             <input
                 v-model="query_date_repas"
-                type="tel"
+                type="text"
                 placeholder="Date du repas (01-01-2025)"
                 pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}"
                 class="py-1 px-1 w-full bg-transparent text-black border-b focus:outline-none focus:shadow-[0px_2px_0_0_#004E41]">
@@ -18,7 +18,7 @@
             
             <input
                 v-model="query_nb_pers"
-                type="number"
+                type="tel"
                 placeholder="Nombre de participants"
                 class="py-1 px-1 w-full bg-transparent text-black border-b focus:outline-none focus:shadow-[0px_2px_0_0_#004E41]">
             

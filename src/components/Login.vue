@@ -52,7 +52,13 @@
                 ).then(
                     (response) => {
                         user_id = response.data.id
-                        window.location.href = `${window.location.origin}/account?id=${user_id}`
+
+                        if (user_id !== undefined){
+                            window.location.href = `${window.location.origin}/account?id=${user_id}`
+                        } else {
+                            errorState.value = true
+                            errorMessage.value = "Vos informations ne sont pas correctes"
+                        }
                     }
                 )
             return user_id 
