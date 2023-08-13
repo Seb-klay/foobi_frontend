@@ -52,8 +52,7 @@
                 ).then(
                     (response) => {
                         user_id = response.data.id
-                        console.log(response.data)
-                        //window.location.href = `${window.location.origin}/account?id=${user_id}`
+                        window.location.href = `${window.location.origin}/account?id=${user_id}`
                     }
                 )
             return user_id 
