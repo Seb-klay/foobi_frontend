@@ -9,7 +9,7 @@
         <div class="pt-8 mb-8 relative w-full">
             <input
                 v-model="query_date_repas"
-                type="text"
+                type="date"
                 placeholder="Date du repas (01-01-2025)"
                 pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}"
                 class="py-1 px-1 w-full bg-transparent text-black border-b focus:outline-none focus:shadow-[0px_2px_0_0_#004E41]">
@@ -60,6 +60,7 @@
     import {useRouter, useRoute} from 'vue-router'
 
     const backend_url = 'https://foobi.jcloud.ik-server.com/'
+    // test is const backend_url = 'http://127.0.0.1:8080'
 
     const router = useRouter()
     const route = useRoute()
@@ -83,6 +84,11 @@
 
 
     const createRepas = async () => {
+        // get date and format it properly
+        const date_repas = query_date_repas.value
+        const parts = date_repas.split("-")
+        const formattedDate = `${parts[2]}-${parts[1]}-${parts[0]}`
+
         if (route.query.id !== undefined && route.query.recipe_id !== undefined && query_nb_pers !== undefined){
             try {
                 const result = await axios.post(
@@ -92,14 +98,16 @@
                             user_id: route.query.id, 
                             recipe_id: route.query.recipe_id,
                             group_id: route.query.group_id,
-                            date_repas: query_date_repas.value,
+                            date_repas: formattedDate,
                             moment: query_moment.value,
                             nb_pers: query_nb_pers.value
                         }
                     )
                 ).then( () =>
                     successAfterCreation.value = true,
-                    successMessage.value = "Le repas a été créé avec succès."
+                    successMessage.value = "Le repas a été créé avec succès.",
+                    clearTimeout(query_timeOut.value),
+                    query_timeOut.value = setTimeout(3000)
                 ).finally(() => {
                     window.location.href = `${window.location.origin}/search?id=${route.query.id}&group_id=${route.query.group_id}`
                 })
@@ -133,7 +141,7 @@
                             group_id: route.query.group_id,
                             recipe_id: recipe_id,
                             api_id: route.query.api_id,
-                            date_repas: query_date_repas.value,
+                            date_repas: formattedDate,
                             moment: query_moment.value,
                             nb_pers: query_nb_pers.value
                         }

@@ -1,10 +1,11 @@
 <template>
   <main>
-    <CreationVue />
+    <!-- <CreationVue /> -->
+    <h1 class="container flex flex-col items-center text-xl pt-6">Rejoindre un groupe</h1>
     <div class="container flex flex-col items-center pt-8 py-11 mb-8 relative">
       <input
         v-model="num_group"
-        type="number"
+        type="tel"
         placeholder="Rejoindre un groupe (numéro)"
         class="flex py-2 px-4 w-full bg-transparent text-black border-b focus:outline-none focus:shadow-[0px_2px_0_0_#004E41]">
       <div class="py-5"></div>
@@ -13,6 +14,14 @@
           Enregistrer
         </button>
       </div>
+      <h2 class="bg-app_primary-color py-10">Pas encore de groupe ?
+        <RouterLink 
+          :to="{path : '/create_group', query: { id: route.query.id} }" 
+          class="bg-app_primary-color px-1 rounded-sm"
+        >
+          cliquez ici
+        </RouterLink>
+      </h2>
       <div v-if="errorWhileCreation">
         <ErrorComp />
         <h1 class="text-red-400 text-xl">{{ errorMessage }}</h1>

@@ -28,23 +28,23 @@
             </button>
             <button 
                 @click="quitGroup(group.id)"
-                class="bg-red-400 shadow-xl border-2 border-transparent rounded-md hover:bg-opacity-50 hover:delay-100 hover:ease-in hover:duration-100 md:p-2 sm:p-1"
+                class="h-auto w-10 rounded-2xl bg-red-400 hover:bg-opacity-50 hover:delay-100 hover:ease-in hover:duration-100"
                 >
-                <h1>Quitter</h1>
+                <img class="p-2" src="../assets/quitter.png" alt="quitter groupe">
             </button>
             <button 
                 v-if="group.islocked == true"
                 @click="unlockGroup(group.id)" 
-                class="bg-app_primary_color bg-opacity-50 shadow-xl border-2 border-transparent rounded-md hover:bg-opacity-50 hover:delay-100 hover:ease-in hover:duration-100 md:p-2 sm:p-1"
+                class="h-auto w-10 rounded-2xl bg-app_primary_color border-black border-2 hover:bg-opacity-50 hover:delay-100 hover:ease-in hover:duration-100"
                 >
-                Fermé
+                <img class="p-2" src="../assets/cadenas-ferme.png" alt="fermer groupe">
             </button>
             <button 
                 v-else 
-                @click="lockGroup(group.id)" 
-                class="bg-app_primary_color shadow-xl border-2 border-transparent rounded-md hover:bg-opacity-50 hover:delay-100 hover:ease-in hover:duration-100 md:p-2 sm:p-1"
+                @click="lockGroup(group.id)"
+                class="h-auto w-10 rounded-2xl bg-app_primary_color hover:bg-opacity-50 hover:delay-100 hover:ease-in hover:duration-100"
                 >
-                Ouvert
+                <img class="p-2" src="../assets/cadenas-ouvert.png" alt="ouvrir groupe">
             </button>
         </div>
 
@@ -52,7 +52,7 @@
 
         <h1 class="container text-3xl text-app_primary_color pb-4">Repas à venir</h1>
         <div 
-            v-if="user_infos.repas.size !== 0" 
+            v-if="user_infos.repas.length !== 0" 
             class="flex gap-10 overflow-x-scroll pb-10">
             <div
                 class="flex flex-col px-5 md:text-2xl sm:text-xl"
@@ -84,12 +84,18 @@
                         <h1 class="flex bottom-2 text-xl">{{ recette.title }}</h1>
                     </RouterLink>
                     <div class="flex flex-row">
-                        <button @click="planifierRepas(recette.id)" class="h-auto w-10 bottom-4 left-4 absolute rounded-2xl bg-app_primary_color border-black border-2 border-opacity-80 hover:bg-opacity-50 hover:delay-100 hover:ease-in hover:duration-100">
+                        <button 
+                            @click="planifierRepas(recette.id)" 
+                            class="h-auto w-10 bottom-4 left-4 absolute rounded-2xl bg-app_primary_color border-black border-2 border-opacity-80 hover:bg-opacity-50 hover:delay-100 hover:ease-in hover:duration-100"
+                        >
                             <img class="p-2" src="../assets/croix-plus.png" alt="creer repas">
                         </button>
-                        <!-- <button class="h-auto w-10 bottom-4 left-16 absolute rounded-2xl bg-app_primary_color border-black border-2 border-opacity-80 hover:bg-opacity-50 hover:delay-100 hover:ease-in hover:duration-100">
-                            <img class="p-2" src="../assets/signet.png" alt="enregistré">
-                        </button> -->
+                        <button
+                            @click="supprimerRecette(recette.id)"
+                            class="h-auto w-10 bottom-4 left-16 absolute rounded-2xl bg-red-400 border-black border-2 border-opacity-80 hover:bg-opacity-50 hover:delay-100 hover:ease-in hover:duration-100"
+                        >
+                            <img class="p-2" src="../assets/poubelle.png" alt="enregistré">
+                        </button>
                     </div>
                 </div>
             </div>
@@ -104,7 +110,8 @@
     import { ref } from "vue"
     import qs from 'qs'
 
-    const backend_url = 'https://foobi.jcloud.ik-server.com'
+    //const backend_url = 'https://foobi.jcloud.ik-server.com'
+    const backend_url = 'http://127.0.0.1:8080'
 
     const day_of_week = ref(['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'])
 
@@ -139,8 +146,30 @@
     }
 
     const planifierRepas = (recipe_id) => {
-        console.log(recipe_id)
         window.location.href = `${window.location.origin}/create_repas?id=${route.query.id}&group_id=${route.query.group_id}&recipe_id=${recipe_id}`
+    }
+
+    const supprimerRecette = async (recipe_id) => {
+        if (route.query.id !== undefined){
+          try {
+              const result = await axios.post(
+                  `${backend_url}/delete_recette`,
+                  qs.stringify(
+                      { 
+                          user_id: route.query.id, 
+                          recette_id: recipe_id
+                      }
+                  )
+              ).then( () =>
+                window.location.reload()
+              )
+          } catch(error){
+              errorWhileCreation.value = true
+              errorMessage.value = error.message
+          }
+
+          return
+      }
     }
 
     const get_day_repas_infos = (day) => {

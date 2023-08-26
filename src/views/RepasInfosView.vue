@@ -39,6 +39,7 @@
     import { ref, onMounted } from "vue"
 
     const backend_url = 'https://foobi.jcloud.ik-server.com'
+    // test is const backend_url = 'http://127.0.0.1:8080'
 
     const get_infosState = ref(null)
 

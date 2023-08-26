@@ -1,6 +1,6 @@
 <template>
     <div class="container py-0 pt-4 flex flex-col items-center">
-        <h1 class="text-xl">Créer un compte</h1>
+        <h1 class="text-xl">Créer un groupe</h1>
         <div class="pt-8 mb-8 relative w-full">
             <input
                 v-model="query_group_name"
