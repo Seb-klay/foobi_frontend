@@ -173,7 +173,7 @@
     const create_recipe = async (recipe) => {
         var list = recipe.value.extendedIngredients.map(item => ({
             quantity: item.amount,
-            metric: item.unit,
+            metric: item.unit ? item.unit : ' ', // Use ' ' (empty space) if metric is null,
             ingredient: item.name
         }))
         const result = await axios.post(
