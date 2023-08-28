@@ -45,9 +45,9 @@
                                     <img class="p-2" src="../assets/croix-plus.png" alt="créer repas">
                                 </button>
 
-                                <button class="h-auto w-10 bottom-4 left-16 absolute rounded-2xl bg-app_primary_color border-black border-2 border-opacity-80 hover:bg-opacity-50 hover:delay-100 hover:ease-in hover:duration-100">
+                                <!-- <button class="h-auto w-10 bottom-4 left-16 absolute rounded-2xl bg-app_primary_color border-black border-2 border-opacity-80 hover:bg-opacity-50 hover:delay-100 hover:ease-in hover:duration-100">
                                     <img class="p-2" src="../assets/signet.png" alt="enregistré">
-                                </button>
+                                </button> -->
                             </div>
                         </div>
                     </div>

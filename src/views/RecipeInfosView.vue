@@ -117,7 +117,7 @@
                         { 
                             user_id: route.query.id,
                             title: recipe_result.value.title,
-                            id_api: route.query.recipe_id,
+                            id_api: route.query.api_id,
                             ingredients: JSON.stringify(list),
                             methodology: recipe_result.value.instructions,
                             nb_people: recipe_result.value.servings
