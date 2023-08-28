@@ -101,4 +101,8 @@
         }, 500)
     }
 
+    const planifierRepas = (api_id) => {
+        window.location.href = `${window.location.origin}/create_repas?id=${route.query.id}&group_id=${route.query.group_id}&api_id=${api_id}`
+    }
+
 </script>
