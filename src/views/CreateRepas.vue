@@ -59,7 +59,7 @@
     import ErrorComp from '../components/Error.vue'
     import {useRouter, useRoute} from 'vue-router'
 
-    const backend_url = 'https://foobi.jcloud.ik-server.com/'
+    const backend_url = 'https://foobi.jcloud.ik-server.com'
     // test is const backend_url = 'http://127.0.0.1:8080'
 
     const router = useRouter()
