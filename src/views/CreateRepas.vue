@@ -118,7 +118,7 @@
             return
         } else if(route.query.id !== undefined && route.query.api_id !== undefined && query_nb_pers !== undefined) {
             try {
-                var recipe_id = route.query.recipe_id
+                var recipe_id = route.query.api_id
 
                 const findByIdAPI_result = await find_by_api_id()
 
@@ -140,7 +140,7 @@
                             user_id: route.query.id,
                             group_id: route.query.group_id,
                             recipe_id: recipe_id,
-                            api_id: route.query.api_id,
+                            api_id: recipe_id,
                             date_repas: formattedDate,
                             moment: query_moment.value,
                             nb_pers: query_nb_pers.value
