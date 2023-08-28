@@ -64,7 +64,7 @@
     import { ref, onMounted } from "vue"
     import NotFoundComp from '../components/NotFound.vue'
 
-    const backend_url = 'https://foobi.jcloud.ik-server.com/'
+    const backend_url = 'https://foobi.jcloud.ik-server.com'
     //const backend_url = 'http://127.0.0.1:8080'
 
     const API_KEY = '708a8e7429c0436d98c1bb6fc739f96a'
