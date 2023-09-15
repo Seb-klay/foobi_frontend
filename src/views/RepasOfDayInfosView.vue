@@ -60,7 +60,6 @@
     }
 
     const deleteRepas = async (repas_id) => {
-        console.log(repas_id)
         try {
             const result = await axios.post(
                 `${backend_url}/delete_repas`,
@@ -81,7 +80,6 @@
     const repas_infos = ref(null)
 
     const get_infos_repas = (repas_id) => {
-        console.log(repas_id)
         router.push({
             path: '/repas_infos',
             query: {
