@@ -9,7 +9,7 @@
         <div class="pt-8 mb-8 relative w-full">
             <input
                 v-model="query_title"
-                type="tel"
+                type="text"
                 placeholder="Titre"
                 pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}"
                 class="py-1 px-1 w-full bg-transparent text-black border-b focus:outline-none focus:shadow-[0px_2px_0_0_#004E41]">
@@ -22,7 +22,7 @@
                 v-for="(set, index) in list_ingredients" :key="index">
                 <input
                     v-model="set.query_quantity"
-                    type="number"
+                    type="text"
                     placeholder="quantity"
                     pattern="[0-9]"
                     class="py-1 px-2 w-full bg-transparent text-black border-b focus:outline-none focus:shadow-[0px_2px_0_0_#004E41]">
@@ -58,7 +58,7 @@
             
             <input
                 v-model="query_nb_pers"
-                type="number"
+                type="tel"
                 placeholder="Nombre de participants"
                 class="py-1 px-1 w-full bg-transparent text-black border-b focus:outline-none focus:shadow-[0px_2px_0_0_#004E41]">
             
